@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: RAW
+    schema: RAW
+    description: "Raw schema containing ingested server monitoring data"
+    tables:
+      - name: SERVER_METADATA
+        description: "Raw metadata file with server names, clusters, locations, and OS types"
+      - name: SERVER_PERFORMANCE_STATION1
+        description: "Raw server performance logs collected from monitoring station 1"
+      - name: SERVER_PERFORMANCE_STATION2
+        description: "Raw server performance logs collected from monitoring station 2"
+
+        

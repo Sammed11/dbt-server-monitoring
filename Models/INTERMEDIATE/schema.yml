@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: int_server_performance
+    description: "Unified performance logs from Station1 and Station2 with derived metrics"
+    columns:
+      - name: Log_ID
+        tests:
+          - unique
+          - not_null
+
+      - name: Server_ID
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_server_metadata')
+              field: Server_ID
+
+      - name: Log_Timestamp
+        tests:
+          - not_null
+
+      - name: Availability_Percent
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 100

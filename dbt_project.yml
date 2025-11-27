@@ -1,0 +1,28 @@
+name: server_monitoring
+version: 1.0.0
+config-version: 2
+
+# Define where dbt should look for models, seeds, snapshots, etc.
+profile: default
+
+# Paths
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+# Target schema settings
+models:
+  server_monitoring:
+    STAGING:
+      +schema: STAGING
+      +materialized: view
+    INTERMEDIATE:
+      +schema: INTERMEDIATE
+      +materialized: view
+    MARTS:
+      +schema: MARTS
+      +materialized: table
+flags:
+  require_generic_test_arguments_property: true
+model-paths: ["Models"]

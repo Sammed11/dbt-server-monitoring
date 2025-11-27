@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: fact_server_performance
+    description: "Fact table combining server performance logs with metadata for BI dashboards"
+    columns:
+      - name: Log_ID
+        description: "Unique identifier for each log entry"
+      - name: Server_ID
+        description: "Server identifier, joins to metadata"
+      - name: Server_Name
+        description: "Human-readable server name from metadata"
+      - name: Server_Cluster
+        description: "Cluster grouping of the server"
+      - name: Server_Location
+        description: "Physical or logical location of the server"
+      - name: OS_Type
+        description: "Operating system type (Windows/Linux/etc.)"
+      - name: Log_Timestamp
+        description: "Timestamp when the log was recorded"
+      - name: CPU_Utilization
+        description: "CPU usage percentage at the log timestamp"
+      - name: Memory_Usage
+        description: "Memory usage percentage at the log timestamp"
+      - name: Disk_IO
+        description: "Disk input/output operations per second"
+      - name: Network_Traffic_In
+        description: "Inbound network traffic volume"
+      - name: Network_Traffic_Out
+        description: "Outbound network traffic volume"
+      - name: Uptime
+        description: "Total uptime duration recorded in the log"
+      - name: Downtime
+        description: "Total downtime duration recorded in the log"
+      - name: Availability_Percent
+        description: "Calculated as uptime / (uptime + downtime) * 100"

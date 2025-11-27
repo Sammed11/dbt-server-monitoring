@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: fact_server_performance
+    description: "Fact table enriched with metadata for BI dashboards"
+    columns:
+      - name: Server_ID
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_server_metadata')
+              field: Server_ID
+
+      - name: Server_Name
+        tests:
+          - not_null
+
+      - name: Log_Timestamp
+        tests:
+          - not_null
+
+      - name: CPU_Utilization
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 100
+
+      - name: Memory_Usage
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 100
+
+      - name: Availability_Percent
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 100
