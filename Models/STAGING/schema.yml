@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg_server_metadata
+    description: "Cleaned metadata for servers"
+    columns:
+      - name: Server_ID
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_server_performance_station1
+    description: "Performance logs from Station 1"
+    columns:
+      - name: Log_ID
+        tests:
+          - unique
+          - not_null
+      - name: Server_ID
+        tests:
+          - not_null
+
+  - name: stg_server_performance_station2
+    description: "Performance logs from Station 2"
+    columns:
+      - name: Log_ID
+        tests:
+          - unique
+          - not_null
+      - name: Server_ID
+        tests:
+          - not_null
